@@ -13,42 +13,36 @@ badge.textContent = badgeNum;
 // data
 let products = [
   {
-    product_id: 1,
     product_name: "fancy red lighter",
     product_price: 35.0,
     product_image: "image-1.jpg",
     added_to_cart: false,
   },
   {
-    product_id: 2,
     product_name: "canon camera",
     product_price: 80.0,
     product_image: "image-2.jpg",
     added_to_cart: false,
   },
   {
-    product_id: 3,
     product_name: "ice cream",
     product_price: 10.0,
     product_image: "image-3.jpg",
     added_to_cart: false,
   },
   {
-    product_id: 4,
     product_name: "queen perfume",
     product_price: 90.0,
     product_image: "image-4.jpg",
     added_to_cart: false,
   },
   {
-    product_id: 5,
     product_name: "men perfume",
     product_price: 70.0,
     product_image: "image-5.jpg",
     added_to_cart: false,
   },
   {
-    product_id: 6,
     product_name: "blue marker",
     product_price: 5.0,
     product_image: "image-6.jpg",
