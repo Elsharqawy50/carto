@@ -7,6 +7,7 @@ const cartList = document.querySelector(".cart__list");
 const badge = document.querySelector(".cart_badge");
 const modal = document.querySelector(".modal");
 
+const defaultPrice = '0.00';
 let badgeNum = 0;
 badge.textContent = badgeNum;
 
@@ -76,7 +77,7 @@ const readCartData = () => {
       />
       <div class="cart__item-text">
         <h5 class="cart__item-head">${product.product_name}</h5>
-        <div class="cart__item-price">$${product.product_price?.toFixed(2) || '0.00'}</div>
+        <div class="cart__item-price">$${product.product_price?.toFixed(2) || defaultPrice}</div>
       </div>
       <button onclick="updateProduct(${i})" class="cart__btn-delete">&times;</button>
     </li>`;
@@ -94,7 +95,7 @@ const readData = () => {
     }" alt="card image" class="card__img" />
     <div class="card__about-box">
     <h5 class="card__heading">${product.product_name}</h5>
-    <div class="card__price">$${product.product_price?.toFixed(2) || '0.00'}</div>
+    <div class="card__price">$${product.product_price?.toFixed(2) || defaultPrice}</div>
     <div class="actions-box">
     <button onclick="updateProduct(${i})" class="btn">${
       product.added_to_cart ? "Remove from cart" : "Add to cart"
@@ -127,7 +128,7 @@ const readModalData = (index) => {
   }" alt="product image" class="modal__img" />
   <div class="modal__about-box">
     <h5 class="modal__heading">${products[index].product_name}</h5>
-    <div class="modal__price">$${products[index].product_price?.toFixed(2) || '0.00'}</div>
+    <div class="modal__price">$${products[index].product_price?.toFixed(2) || defaultPrice}</div>
     <div class="actions-box">
       <button onclick="updateProduct(${index})" class="btn w-100">${
     products[index].added_to_cart ? "Remove from cart" : "Add to cart"
