@@ -51,10 +51,10 @@ let products = [
 ];
 
 // check localStorage data
-if (localStorage.getItem("products")) {
-  products = JSON.parse(localStorage.getItem("products"));
+if (localStorage.getItem("productsList")) {
+  products = JSON.parse(localStorage.getItem("productsList"));
 } else {
-  localStorage.setItem("products", JSON.stringify(products));
+  localStorage.setItem("productsList", JSON.stringify(products));
 }
 
 // read products in the cart
@@ -76,7 +76,7 @@ const readCartData = () => {
       />
       <div class="cart__item-text">
         <h5 class="cart__item-head">${product.product_name}</h5>
-        <div class="cart__item-price">$${product.product_price.toFixed(2)}</div>
+        <div class="cart__item-price">$${product.product_price?.toFixed(2) || '0.00'}</div>
       </div>
       <button onclick="updateProduct(${i})" class="cart__btn-delete">&times;</button>
     </li>`;
@@ -94,7 +94,7 @@ const readData = () => {
     }" alt="card image" class="card__img" />
     <div class="card__about-box">
     <h5 class="card__heading">${product.product_name}</h5>
-    <div class="card__price">$${product.product_price.toFixed(2)}</div>
+    <div class="card__price">$${product.product_price?.toFixed(2) || '0.00'}</div>
     <div class="actions-box">
     <button onclick="updateProduct(${i})" class="btn">${
       product.added_to_cart ? "Remove from cart" : "Add to cart"
@@ -114,7 +114,7 @@ const readData = () => {
   // read cart data after products data is added
   readCartData();
 
-  localStorage.setItem("products", JSON.stringify(products));
+  localStorage.setItem("productsList", JSON.stringify(products));
 };
 readData();
 
@@ -127,7 +127,7 @@ const readModalData = (index) => {
   }" alt="product image" class="modal__img" />
   <div class="modal__about-box">
     <h5 class="modal__heading">${products[index].product_name}</h5>
-    <div class="modal__price">$${products[index].product_price.toFixed(2)}</div>
+    <div class="modal__price">$${products[index].product_price?.toFixed(2) || '0.00'}</div>
     <div class="actions-box">
       <button onclick="updateProduct(${index})" class="btn w-100">${
     products[index].added_to_cart ? "Remove from cart" : "Add to cart"
